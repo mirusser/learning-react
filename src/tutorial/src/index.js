@@ -5,31 +5,44 @@ import ReactDom from 'react-dom'
 import './css/index.css'
 
 //setup vars
-const author = 'Amelia Hepworth'
-const title = 'I Love You to the Moon and Back'
-const imgSrc =
-  'https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg'
+const firstBook = {
+  author: 'Amelia Hepworth',
+  title: 'I Love You to the Moon and Back',
+  imgSrc:
+    'https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg',
+}
+const secondBook = {
+  author: 'Shannon Olsen',
+  title: 'Our Class is a Family',
+  imgSrc:
+    'https://images-na.ssl-images-amazon.com/images/I/510g8NLbpNL._SX384_BO1,204,203,200_.jpg',
+}
 
 const BookList = () => {
   return (
     <>
       <section className='booklist'>
-        <Book job='developer' />
-        <Book title='random title' number={22} />
+        <Book
+          imgSrc={firstBook.imgSrc}
+          title={firstBook.title}
+          author={firstBook.author}
+        />
+        <Book
+          imgSrc={secondBook.imgSrc}
+          title={secondBook.title}
+          author={secondBook.author}
+        />
       </section>
     </>
   )
 }
 
-const Book = (props) => {
+const Book = ({ imgSrc, title, author }) => {
   return (
     <article className='book'>
       <img src={imgSrc} alt='' />
       <h1>{title}</h1>
       <h4>{author.toUpperCase()}</h4>
-      <p>{props.job}</p>
-      <p>{props.title}</p>
-      <p>{props.number}</p>
     </article>
   )
 }
