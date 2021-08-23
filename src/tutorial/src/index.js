@@ -4,31 +4,8 @@ import ReactDom from 'react-dom'
 //css
 import './css/index.css'
 
-//setup vars
-const books = [
-  {
-    id: 1,
-    author: 'Amelia Hepworth',
-    title: 'I Love You to the Moon and Back',
-    imgSrc:
-      'https://images-na.ssl-images-amazon.com/images/I/517h-u1AQlL._SX482_BO1,204,203,200_.jpg',
-  },
-  {
-    id: 2,
-    author: 'Shannon Olsen',
-    title: 'Our Class is a Family',
-    imgSrc:
-      'https://images-na.ssl-images-amazon.com/images/I/510g8NLbpNL._SX384_BO1,204,203,200_.jpg',
-  },
-  {
-    id: 3,
-    author: 'James Clear',
-    title:
-      'Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones',
-    imgSrc:
-      'https://images-na.ssl-images-amazon.com/images/I/51CPNIRSWeL._SX339_BO1,204,203,200_.jpg',
-  },
-]
+import { books } from './books'
+import Book from './Book'
 
 const BookList = () => {
   return (
@@ -39,51 +16,6 @@ const BookList = () => {
         })}
       </section>
     </>
-  )
-}
-
-// const Book = (props) => {
-//   const { imgSrc, title, author } = props.book
-//   return (
-//     <article className='book'>
-//       <img src={imgSrc} alt='' />
-//       <h1>{title}</h1>
-//       <h4>{author.toUpperCase()}</h4>
-//     </article>
-//   )
-// }
-
-const Book = ({ imgSrc, title, author, children }) => {
-  //attribute, eventHandler
-
-  const clickHandler = () => {
-    alert('Hello world')
-  }
-
-  const complexExampleHandler = (author) => {
-    alert(author)
-  }
-
-  const onMouseOverHandler = (title) => {
-    console.log(title)
-  }
-
-  return (
-    <article className='book' onMouseOver={() => onMouseOverHandler(title)}>
-      <img src={imgSrc} alt='' />
-      <h1>{title}</h1>
-      <h4>{author.toUpperCase()}</h4>
-      {children}
-      <button type='button' onClick={clickHandler}>
-        Reference example
-      </button>
-      <button type='button' onClick={() => alert(title)}>
-        Inline example
-      </button>
-      <button type='button' onClick={() => complexExampleHandler(author)}>
-        More complex example
-      </button>
-    </article>
   )
 }
 
