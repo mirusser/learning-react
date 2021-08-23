@@ -4,8 +4,10 @@ import { data } from '../../../data'
 const UseStateArray = () => {
   const [people, setPeople] = React.useState(data)
   const removeItem = (id) => {
-    let newPeople = people.filter((person) => person.id !== id)
-    setPeople(newPeople)
+    setPeople((prevPeople) => {
+      let newPeople = prevPeople.filter((person) => person.id !== id)
+      return newPeople
+    })
   }
   return (
     <>
