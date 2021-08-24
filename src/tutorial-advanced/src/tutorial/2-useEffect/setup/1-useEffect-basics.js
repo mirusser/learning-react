@@ -5,8 +5,10 @@ import React, { useState, useEffect } from 'react'
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0)
   useEffect(() => {
-    console.log('call use effect')
-    document.title = `New messages (${value})`
+    console.log('call useEffect')
+    if (value > 0) {
+      document.title = `New messages (${value})`
+    }
   })
   console.log('render component')
 
