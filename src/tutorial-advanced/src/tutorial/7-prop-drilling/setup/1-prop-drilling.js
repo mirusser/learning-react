@@ -8,7 +8,7 @@ const PropDrilling = () => {
   const [people, setPeople] = useState(data)
   const removePerson = (id) => {
     setPeople((people) => {
-      return people.filter((person) => person.id != id)
+      return people.filter((person) => person.id !== id)
     })
   }
   return (
