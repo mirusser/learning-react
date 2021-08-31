@@ -1,26 +1,25 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 
-class Toggle extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { isToggleOn: false }
+const ToggleContext = React.createContext()
 
-    // this.handleClick = this.handleClick.bind(this)
+const Toggle = () => {
+  const [isToggleOn, setIsToggleOn] = useState(true)
+
+  const handleClick = () => {
+    setIsToggleOn((prevIsToggleOn) => !prevIsToggleOn)
   }
 
-  handleClick = () => {
-    this.setState((prevState) => ({
-      isToggleOn: !prevState.isToggleOn,
-    }))
-  }
+  return (
+    <ToggleContext.Provider value={{ isToggleOn, handleClick }}>
+      <ToggleButton />
+    </ToggleContext.Provider>
+  )
+}
 
-  render() {
-    return (
-      <button onClick={this.handleClick}>
-        {this.state.isToggleOn ? 'ON' : 'OFF'}
-      </button>
-    )
-  }
+const ToggleButton = () => {
+  const { isToggleOn, handleClick } = useContext(ToggleContext)
+  let btnText = isToggleOn ? 'ON' : 'OFF'
+  return <button onClick={() => handleClick()}>{btnText}</button>
 }
 
 export default Toggle
