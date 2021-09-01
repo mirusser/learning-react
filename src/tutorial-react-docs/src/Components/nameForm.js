@@ -10,8 +10,9 @@ class NameForm extends React.Component {
     this.setState({ value: event.target.value })
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
     alert(`A name was submitter: ${this.state.value}`)
+    event.preventDefault()
   }
 
   render() {
