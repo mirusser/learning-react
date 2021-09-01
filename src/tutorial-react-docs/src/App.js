@@ -3,6 +3,7 @@ import Clock from './Components/clock'
 import Toggle from './Components/toggle'
 import NameForm from './Components/nameForm'
 import Calculator from './Components/tempCalculator'
+import SignUpDialog from './Components/Composition/signUpDialog'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       {/* <Toggle />
       <NameForm /> */}
       <Calculator />
+      <SignUpDialog />
     </div>
   )
 }
