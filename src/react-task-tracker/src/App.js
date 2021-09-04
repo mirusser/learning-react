@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import Header from './Components/Header'
 import Tasks from './Components/Tasks'
@@ -6,18 +6,41 @@ import AddTask from './Components/AddTask'
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false)
-  const [tasks, setTasks] = useState([
+  const [tasks, setTasks] = useState([])
 
-  ])
+  const fetchTasks = async () => {
+    const response = await fetch('http://localhost:7878/tasks')
+    const data = await response.json()
 
-  const addTask = (task) => {
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = { id, ...task }
-    setTasks([...tasks, newTask])
+    return data
   }
 
-  const deleteTask = (id) => {
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+    getTasks()
+  }, [])
+
+  const addTask = async (task) => {
+    const response = await fetch('http://localhost:7878/tasks', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(task),
+    })
+
+    const newTask = await response.json()
+    setTasks([...tasks, newTask])
+    // const id = Math.floor(Math.random() * 10000) + 1
+    // const newTask = { id, ...task }
+    // setTasks([...tasks, newTask])
+  }
+
+  const deleteTask = async (id) => {
     console.log(`delete: ${id}`)
+    await fetch(`http://localhost:7878/tasks/${id}`, { method: 'DELETE' })
+
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
