@@ -8,6 +8,7 @@ import LayoutEffectTutorial from './Components/UseLayoutEffect/LayoutEffectTutor
 import ImperativeHandle from './Components/UseImperativeHandle/ImperativeHandle'
 import ContextTutorial from './Components/UseContext/ContextTutorial'
 import MemoTutorial from './Components/UseMemo/MemoTutorial'
+import CallbackTutorial from './Components/UseCallback/CallbackTutorial'
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       {/* <LayoutEffectTutorial /> */}
       {/* <ImperativeHandle /> */}
       {/* <ContextTutorial /> */}
-      <MemoTutorial />
+      {/* <MemoTutorial /> */}
+      <CallbackTutorial />
     </div>
   )
 }
