@@ -21,15 +21,11 @@ export const useHomeFetch = () => {
 
       const movies = await API.fetchMovies(searchTerm, page)
 
-      const newMovies = {
+      setState((prev) => ({
         ...movies,
         results:
-          page > 1
-            ? [...state.results, ...movies.results]
-            : [...movies.results],
-      }
-      
-      setState(newMovies)
+          page > 1 ? [...prev.results, ...movies.results] : [...movies.results],
+      }))
 
       console.log('useEffect')
     } catch (error) {
