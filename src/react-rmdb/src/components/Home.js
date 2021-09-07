@@ -16,11 +16,8 @@ import NoImage from '../images/no_image.jpg'
 const Home = () => {
   const { state, loading, error, setSearchTerm } = useHomeFetch()
 
-  console.log(state)
-
   if (error) return <div>Something went wrong ...</div>
 
-  console.log(state.results[0])
   return (
     <>
       {state.results[0] && (
