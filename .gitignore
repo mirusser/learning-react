@@ -1,3 +1,4 @@
 .vs/
 node_modules/
 src/react-rmdb/.env
+src/react-rmdb-ts/.env
