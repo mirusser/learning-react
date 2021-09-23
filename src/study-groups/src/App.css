@@ -1,0 +1,21 @@
+body {
+  background-color: rgb(26, 22, 22) !important;
+}
+
+.App {
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  color: whitesmoke
+}
+
+.drop-zone {
+  border: 2px dashed black;
+  border-radius: 5px;
+  padding: 75px;
+  margin: 1rem;
+  text-align: center;
+  font-size: xx-large;
+}
