@@ -2,3 +2,5 @@
 node_modules/
 src/react-rmdb/.env
 src/react-rmdb-ts/.env
+/src/study-groups/StudyGroups.WebApi/bin/Debug/net5.0
+/src/study-groups/StudyGroups.WebApi/obj
