@@ -2,13 +2,14 @@ import React from 'react'
 import Dropzone from 'react-dropzone'
 import xlsxParser from 'xlsx-parse-json'
 
-const CreateGroup = () => {
+const CreateGroup = ({ createGroup }) => {
   return (
     <Dropzone
       onDrop={(acceptedFiles) =>
         xlsxParser.onFileSelection(acceptedFiles[0]).then((data) => {
-          //var parsedData = data
-          console.log('data: ', data)
+          console.log(data)
+          data.Arkusz1.map((d) => (d.groupName = acceptedFiles[0].name))
+          createGroup(data.Arkusz1)
         })
       }
     >

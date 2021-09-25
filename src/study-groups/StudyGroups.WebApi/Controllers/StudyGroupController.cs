@@ -8,11 +8,11 @@ namespace StudyGroups.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class StudyGroupsController : ControllerBase
+    public class StudyGroupController : ControllerBase
     {
         private readonly IStudyGroupService _studyGroupService;
 
-        public StudyGroupsController(IStudyGroupService strudyGroupService)
+        public StudyGroupController(IStudyGroupService strudyGroupService)
         {
             _studyGroupService = strudyGroupService;
         }
